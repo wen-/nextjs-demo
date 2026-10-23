@@ -1,0 +1,18 @@
+fetch("xxx").then(response => response.blob()).then(blob => {
+  let url = window.URL.createObjectURL(blob);
+  let a = document.createElement('a');
+  a.href = url;
+  a.download = 'filename.pdf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+})
+
+
+
+https://repo1.maven.org/maven2/com/facebook/react/react-native-artifacts/0.71.19/react-native-artifacts-0.71.19-hermes-ios-debug.tar.gz
+
+https://www.aws.training/Account/Transcript/Current
+https://www.aws.training/Details/InstructorLedTraining?id=164374
+https://url.au.m.mimecastprotect.com/s/JGsPCk837ET2AgoGH2fEsGT1KZ?domain=us-east-1.student.classrooms.aws.training
+https://url.au.m.mimecastprotect.com/s/R3CZClx37GcRmL64C9hvszj8u3?domain=online.vitalsource.com

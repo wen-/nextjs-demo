@@ -14,15 +14,16 @@ export async function GET(request, ctx) {
 
     // 读取文件内容
     const fileBuffer = fs.readFileSync(filePath);
+    const separatorIndex = filename.indexOf("_");
+    const downloadName =
+      separatorIndex === -1 ? filename : filename.slice(separatorIndex + 1);
 
     // 设置响应头
     const headers = new Headers();
     headers.append("Content-Type", "application/octet-stream");
     headers.append(
       "Content-Disposition",
-      `attachment; filename="${encodeURIComponent(
-        filename.split("_")[1] || filename
-      )}"`
+      `attachment; filename*=UTF-8''${encodeURIComponent(downloadName)}`
     );
 
     // 返回文件响应

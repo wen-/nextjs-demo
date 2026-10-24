@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 const websockConfig = {
-    url: "ws://localhost:3001",
     reconnectInterval: 1000, // 重连间隔
     maxReconnect: 30, // 最大重连次数
 };
@@ -26,7 +25,10 @@ export default function Chat() {
     }
 
     const connect = () => {
-      const websocket = new WebSocket("ws://localhost:3001");
+      const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+      const websocket = new WebSocket(
+        `${protocol}://${window.location.hostname}:3001`
+      );
 
       websocket.onopen = () => {
         setReconnect(0);
